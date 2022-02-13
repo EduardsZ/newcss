@@ -1,0 +1,88 @@
+/* https://www.youtube.com/watch?v=5OLDpdqdyWE */
+
+:root {
+  --nav-menu-anim-time: .05s;
+  --nav-menu-anim-delay: calc(var(--nav-menu-anim-time) * 8);
+  --nav-icons-color: #2dfc52;
+  --nav-icons-col-dark: #177429;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #10131c;
+}
+
+.navigation {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #212532;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .3s;
+  transition-delay: var(--nav-menu-anim-delay);
+}
+
+.navigation.active {
+  height: 200px;
+  width: 200px;
+  border-radius: 30px;
+  transition-delay: 0s;
+}
+
+.navigation span {
+  position: absolute;
+  background-color: aliceblue;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  transform: translate(calc(12px * var(--x)), calc(12px * var(--y)));
+  transition: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation span svg {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.navigation.active span svg {
+  opacity: 1;
+  width: 1.35em;
+  height: 1.35em;
+  transition: color .3s;
+}
+
+.navigation.active span {
+  width: 40px;
+  height: 40px;
+  background-color: #333849;
+  transform: translate(calc(60px * var(--x)), calc(60px * var(--y)));
+}
+
+.navigation.active span:hover {
+  box-shadow: 0px 0px 20px var(--nav-icons-col-dark),
+  inset 0px 0px 20px var(--nav-icons-col-dark);
+}
+
+.navigation.active span:hover svg {
+  color: var(--nav-icons-color);
+  filter: drop-shadow(0px 0px 10px #2dfc52);
+    /* drop-shadow(0px 0px -5px #2dfc52),
+    drop-shadow(0px 0px 15px #2dfc52); */
+}
